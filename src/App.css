@@ -1,0 +1,9 @@
+.main {
+  min-height: 80vh;
+}
+
+.register-page form {
+  max-width: 450px;
+  margin: auto;
+  background: #a0f4e3c8;
+}

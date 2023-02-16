@@ -90,14 +90,14 @@ export const RegisterPage = () => {
         <Container className="m-3">
           <Form
             onSubmit={handleOnSubmit}
-            className="border p-3 solid shadow-lg"
+            className="border p-3 rounded shadow-lg"
           >
             <h3>Sign up with new user!!!</h3>
             <hr />
 
-            {inputes.map((item, i) => {
-              <CustomInputField key={i} {...item} onChange={handleOnChange} />;
-            })}
+            {inputes.map((item, i) => (
+              <CustomInputField key={i} {...item} onChange={handleOnChange} />
+            ))}
             <Button variant="primary" type="submit">
               Submit
             </Button>

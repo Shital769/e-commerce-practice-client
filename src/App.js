@@ -1,11 +1,18 @@
+import {RegisterPage} from "./pages/register/RegisterPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-bootstrap";
+import {Dashboard} from "./pages/dashboard/Dashboard";
 import "./App.css";
-import RegisterPage from "./pages/register/RegisterPage";
-
 function App() {
   return (
-    <div className="App">
-      <i className="fa-solid fa-house"></i>Hello Shital
-      <RegisterPage />
+    <div className="">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Routes>
+      </BrowserRouter>
+      <ToastContainer />
     </div>
   );
 }
