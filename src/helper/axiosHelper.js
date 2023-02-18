@@ -13,3 +13,16 @@ export const postNewAdmin = async (data) => {
     };
   }
 };
+
+//post email verification
+export const postEmailVerification = async (data) => {
+  try {
+    const res = await axios.post(adminApi + "/verify", data);
+    return res.data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
