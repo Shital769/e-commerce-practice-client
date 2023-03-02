@@ -26,3 +26,16 @@ export const postEmailVerification = async (data) => {
     };
   }
 };
+
+//login admin
+export const loginAdmin = async (loginData) => {
+  try {
+    const res = await axios.post(adminApi + "/login", loginData);
+    return res.loginData;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
