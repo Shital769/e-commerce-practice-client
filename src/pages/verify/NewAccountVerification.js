@@ -28,5 +28,20 @@ export const NewAccountVerification = () => {
       setResponse(response);
     }
   };
-  return <div></div>;
+  return (
+    <>
+      <Header />
+
+      <div className="main p-5 d-flex justify-content-center align-items-center">
+        {response?.message ? (
+          <Alert variant={response.status === "success" ? "success" : "danger"}>
+            {response?.message}
+          </Alert>
+        ) : (
+          <Spinner animation="border" variant="primary" className="fs-1" />
+        )}
+      </div>
+      <Footer />
+    </>
+  );
 };
