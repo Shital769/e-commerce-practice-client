@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import { Header } from "../layout/Header";
+import { Footer } from "../layout/Footer";
 
 const ResetPassword = () => {
   return (
-    <div>ResetPassword</div>
-  )
-}
+    <div>
+      <Header />
 
-export default ResetPassword
+      <Footer />
+    </div>
+  );
+};
+
+export default ResetPassword;
