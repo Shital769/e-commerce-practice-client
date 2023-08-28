@@ -3,11 +3,11 @@ import { Spinner } from "react-bootstrap";
 import { Alert } from "react-bootstrap";
 import { Footer } from "../layout/Footer";
 import { Header } from "../layout/Header";
-import { userSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { postEmailVerification } from "../../helper/axiosHelper";
 
 export const NewAccountVerification = () => {
-  let [searchParams] = userSearchParams({});
+  let [searchParams] = useSearchParams({});
   const [response, setResponse] = useState({});
   const isFetch = useRef(true);
 

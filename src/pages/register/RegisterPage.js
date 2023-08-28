@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Header } from "../layout/Header";
 import { Footer } from "../layout/Footer";
 import { Container, Form, Button } from "react-bootstrap";
-import { CustomInputField } from "../../components/custom-input-filed/CustomInputField";
+import { CustomInputField } from "../../components/custom-input-field/CustomInputField";
 import { postNewAdmin } from "../../helper/axiosHelper";
 import { toast } from "react-toastify";
 

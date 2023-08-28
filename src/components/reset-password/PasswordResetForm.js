@@ -56,12 +56,12 @@ export const PasswordResetForm = () => {
   ];
   return (
     <div>
-      <Form onSubmit={handleOnSubmit} className="border p-4 rounded chadow-lg">
+      <Form onSubmit={handleOnSubmit} className="border p-4 rounded shadow-lg">
         <h3 className="text-center">Reset New Password</h3>
         <hr className="mb-5" />
-        {inputes.map((item, i) => {
-          <CustomInputField key={i} {...item} onChange={handleOnChange} />;
-        })}
+        {inputes.map((item, i) => (
+          <CustomInputField key={i} {...item} onChange={handleOnChange} />
+        ))}
         <Form.Group className="mb-3">
           <Form.Text>
             Your password must have at least 6 character long and one each
