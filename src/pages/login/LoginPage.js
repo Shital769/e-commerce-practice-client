@@ -5,7 +5,7 @@ import { Footer } from "../layout/Footer";
 import Button from "react-bootstrap/Button";
 import { Spinner } from "react-bootstrap";
 import { loginAction } from "./AuthAction";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 export const LoginPage = () => {
@@ -16,6 +16,11 @@ export const LoginPage = () => {
 
   //calling the  updated state from store connected with authSLice
   const { isLoading, user } = useSelector((state) => state.user);
+  console.log(user);
+
+  const location = useLocation();
+
+  const origin = location?.state?.from?.pathname || "dashboard";
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -33,9 +38,9 @@ export const LoginPage = () => {
   };
 
   useEffect(() => {
-    user?._id && navigate("/dashboard");
+    user?._id ? navigate(origin) : dispatch(autoLogin());
     //TODO: make router private and auto login
-  }, [user, navigate]);
+  }, [user?._id, navigate, origin, dispatch]);
 
   return (
     <div>
@@ -43,7 +48,7 @@ export const LoginPage = () => {
 
       <div className="main login-page">
         <Form className="shadow-lg rounded" onSubmit={handleOnSubmit}>
-          <h3 className="textcenter">Welcome!</h3>
+          <h3 className="textcenter">Welcome Back!</h3>
           <hr className="mb-5" />
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email Address</Form.Label>
