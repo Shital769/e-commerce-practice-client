@@ -3,6 +3,7 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Container, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
 export const AdminLayout = ({ children }) => {
   return (
@@ -16,31 +17,8 @@ export const AdminLayout = ({ children }) => {
                 <div className="text-center fw-bolder">Admin Menu</div>
               </div>
               <hr />
-              <div className="sidebar-menu">
-                <ul>
-                  <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </li>
-                  <li>
-                    <Link to="/catalogue">Catalogue</Link>
-                  </li>
-                  <li>
-                    <Link to="/products">Products</Link>
-                  </li>
-                  <li>
-                    <Link to="/payment">Payment Mathods</Link>
-                  </li>
-                  <li>
-                    <Link to="/orders">Orders</Link>
-                  </li>
-                  <li>
-                    <Link to="/customers">Customers</Link>
-                  </li>
-                  <li>
-                    <Link to="/setting">Setting</Link>
-                  </li>
-                </ul>
-              </div>
+
+              <Sidebar />
             </Col>
             <Col>{children}</Col>
           </Row>
