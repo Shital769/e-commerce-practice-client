@@ -8,12 +8,14 @@ const initialState = {
 const userSlice = createSlice({
   name: "user",
   initialState,
-  requestPending: (state) => {
-    state.isLoading = true;
-  },
-  requestSuccess: (state, { payload }) => {
-    state.isLoading = false;
-    state.user = payload;
+  reducers: {
+    requestPending: (state) => {
+      state.isLoading = true;
+    },
+    requestSuccess: (state, { payload }) => {
+      state.isLoading = false;
+      state.user = payload;
+    },
   },
 });
 

@@ -1,11 +1,10 @@
 import React from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
-import { Container, Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 
-export const AdminLayout = ({ children }) => {
+const AdminLayout = ({ children }) => {
   return (
     <div>
       <Header />
@@ -13,11 +12,6 @@ export const AdminLayout = ({ children }) => {
         <Container fluid>
           <Row>
             <Col xs="3" className="side-bar bg-dark text-light">
-              <div className="mt-5">
-                <div className="text-center fw-bolder">Admin Menu</div>
-              </div>
-              <hr />
-
               <Sidebar />
             </Col>
             <Col>{children}</Col>

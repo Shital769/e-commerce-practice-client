@@ -3,9 +3,18 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { requestSuccess } from "../login/AuthSlice";
 
 export const Header = () => {
-  // const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { user } = useSelector((state) => state.user);
+
+  const handleOnLogout = () => {
+    dispatch(requestSuccess({}));
+  };
   return (
     <Navbar bg="warning" expand="md">
       <Container>
