@@ -2,7 +2,7 @@ import axios from "axios";
 const rootUrl = process.env.REACT_APP_DOMAIN + "api/v1";
 const adminApi = rootUrl + "/admin";
 
-const ftechProcessor = async ({ method, url, data, isPrivate, token }) => {
+const fetchProcessor = async ({ method, url, data, isPrivate, token }) => {
   try {
     const jwtToken = token || sessionStorage.getItem("accessJWT");
     console.log(jwtToken);
@@ -35,40 +35,67 @@ const ftechProcessor = async ({ method, url, data, isPrivate, token }) => {
   }
 };
 
+//admin
 export const postNewAdmin = async (data) => {
-  try {
-    const res = await axios.post(adminApi + "/register", data);
-    return res.data;
-  } catch (error) {
-    return {
-      status: "error",
-      message: error.message,
-    };
-  }
+  const url = adminApi + "/register";
+  const obj = {
+    method: "post",
+    url,
+    data,
+    isPrivate: true,
+  };
+  return fetchProcessor(obj);
 };
 
 //post email verification
 export const postEmailVerification = async (data) => {
-  try {
-    const res = await axios.post(adminApi + "/verify", data);
-    return res.data;
-  } catch (error) {
-    return {
-      status: "error",
-      message: error.message,
-    };
-  }
+  const url = adminApi + "/verify";
+  const obj = {
+    method: "post",
+    url,
+    data,
+  };
+  return fetchProcessor(obj);
 };
 
 //login admin
 export const loginAdmin = async (loginData) => {
-  try {
-    const res = await axios.post(adminApi + "/login", loginData);
-    return res.loginData;
-  } catch (error) {
-    return {
-      status: "error",
-      message: error.message,
-    };
-  }
+  const url = adminApi + "/login";
+  const obj = {
+    method: "get",
+    url,
+    isPrivate: true,
+  };
+  return fetchProcessor(obj);
+};
+
+//fetch admin profile
+export const fetchAdminProfile = async () => {
+  const url = adminApi + "/user-profile";
+  const obj = {
+    method: "get",
+    url,
+    isPrivate: true,
+  };
+  return fetchProcessor(obj);
+};
+
+export const fetchOtpRequest = async (formData) => {
+  const url = adminApi + "/request-otp";
+  const obj = {
+    method: "post",
+    url,
+    data: formData,
+  };
+  return fetchProcesser(obj);
+};
+
+export const resetPasswordRequest = async (formData) => {
+  const url = adminApi + "/reset-password";
+  const obj = {
+    method: "patch",
+    url,
+    data: formData,
+  };
+  return fetchProcesser(obj);
 };
