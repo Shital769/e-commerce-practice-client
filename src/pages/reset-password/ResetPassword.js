@@ -5,6 +5,7 @@ import RequestOtp from "../../components/request-otp/RequestOtp";
 import { PasswordResetForm } from "../../components/reset-password/PasswordResetForm";
 import { toast } from "react-toastify";
 import { Alert } from "react-bootstrap";
+import { fetchOtpRequest, resetPasswordRequest } from "../../helper/axiosHelper";
 
 const ResetPassword = () => {
   const [email, setEmail] = useState("");
@@ -34,7 +35,6 @@ const ResetPassword = () => {
       return toast.error("Password do not match");
     }
 
-    // have to create a resetpasswordrequest in axiosF
 
     const { status, message } = await resetPasswordRequest({ ...rest, email });
     console.log(status, message);
