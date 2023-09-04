@@ -20,7 +20,7 @@ export const LoginPage = () => {
 
   const location = useLocation();
 
-  const origin = location?.state?.from?.pathname || "dashboard";
+  const origin = location?.state?.from?.pathname || "/dashboard";
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
