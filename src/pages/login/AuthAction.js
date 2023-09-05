@@ -1,4 +1,4 @@
-import { fetchAdminProfile, loginAdmin } from "../../helper/axiosHelper";
+import { fetchAdminProfile, fetchNewAccessJWT, loginAdmin } from "../../helper/axiosHelper";
 import { requestPending, requestSuccess } from "./AuthSlice";
 import { toast } from "react-toastify";
 

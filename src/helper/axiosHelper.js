@@ -101,3 +101,17 @@ export const resetPasswordRequest = async (formData) => {
 };
 
 //jwt
+export const fetchNewAccessJWT = async () => {
+  // const url=adminApi+"/refreshToken" ;  //this api will refresh the jwt token and send it back to client side.
+  const url = adminApi + "/new-accessjwt";
+  const token = localStorage.getItem("refreshJWT");
+  console.log(token);
+
+  const obj = {
+    method: "get",
+    url,
+    isPrivate: true,
+    token,
+  };
+  return fetchProcessor(obj);
+};
